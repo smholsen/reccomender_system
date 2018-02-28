@@ -35,7 +35,11 @@ def rate_article(time_spent_on_article):
 # Now, this seems weird, so I am not sure, but this is what I found,
 # and after trials and fails I propose we do the following:
 # We can run through the sets before we do the actual filtering and encode each userID and articleID to numeric values.
-# I suggest that this is better than doing it while we are
+# I suggest that this is better than doing it while we are doing the actual filtering as it will greatly reduce
+# the space complexity, and I think this is a fair tradeoff for the insignificant added time complexity.
+# We can use this for the encoding:
+# http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
+
 
 for line in open(input_file):
     obj = json.loads(line.strip())
